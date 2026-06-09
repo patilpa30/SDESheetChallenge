@@ -2,7 +2,7 @@
 
 class Solution {
     public int longestSubarray(int[] arr, int k) {
-        // code here
+        
         //(prefix_sum -> first_occurrence_index)
         HashMap<Integer, Integer> map = new HashMap<>();
         
@@ -18,11 +18,11 @@ class Solution {
                 maxLen = i + 1;
             }
             
-            // If the sum has been seen before, we found a 0-sum subarray
+          
             if (map.containsKey(sum-k)) {
                 maxLen = Math.max(maxLen, i - map.get(sum-k));
             } 
-                // Only store the first occurrence to maximize the subarray length
+                
             map.putIfAbsent(sum,i);
         }
         
